@@ -7,6 +7,8 @@ defmodule SquareElixir.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
@@ -17,15 +19,22 @@ defmodule SquareElixir.Mixfile do
     [applications: [:logger, :httpoison]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
+  def description do
+    """
+    Package for accessing square's V1 API
+    """
+  end
+
+  defp package do
+    [
+      name: :postgrex,
+      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      maintainers: ["Mark Nery"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => "https://github.com/mark-nery/square_elixir"}
+    ]
+  end
+
   defp deps do
     [{:httpoison, "~> 0.10.0"},
      {:poison, "~> 3.0"}]
