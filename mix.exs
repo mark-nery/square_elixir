@@ -3,7 +3,7 @@ defmodule SquareElixir.Mixfile do
 
   def project do
     [app: :square_elixir,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -27,7 +27,7 @@ defmodule SquareElixir.Mixfile do
 
   defp package do
     [
-      name: :postgrex,
+      name: :square_elixir,
       files: ["lib", "mix.exs", "README*"],
       maintainers: ["Mark Nery"],
       licenses: ["Apache 2.0"],
@@ -37,6 +37,7 @@ defmodule SquareElixir.Mixfile do
 
   defp deps do
     [{:httpoison, "~> 0.10.0"},
-     {:poison, "~> 3.0"}]
+     {:poison, "~> 3.0"},
+     {         :ex_doc, ">= 0.0.0", only: :dev}]
   end
 end
